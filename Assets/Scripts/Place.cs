@@ -5,9 +5,9 @@ using UnityEngine;
 public class Place : MonoBehaviour {
     public GameObject[] fonts;
     Vector3[] pos;
-    const int num = 72;
+    const int num = 10;
     float stepDegree;
-    float radius = 1.0f;
+    float radius = 10.0f;
 	void Start () {
         fonts = new GameObject[num];
         pos = new Vector3[num];
@@ -17,10 +17,11 @@ public class Place : MonoBehaviour {
 
         for (int i = 0; i < fonts.Length; i++){
             string index = (i + 1).ToString();
-            fonts[i] = (GameObject)Resources.Load(index+"-72");
+            fonts[i] = (GameObject)Resources.Load(index);
             pos[i] = new Vector3(radius * Mathf.Sin(stepDegree * i), 0.0f, radius * Mathf.Cos(stepDegree * i));
 
-            fonts[i] = Instantiate(fonts[i], pos[i], Quaternion.identity);                                        
+            fonts[i] = Instantiate(fonts[i], pos[i], Quaternion.identity);
+            fonts[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         }
 	}
 	
