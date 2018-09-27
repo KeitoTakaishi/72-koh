@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b5342e7ce371246c2b7c82051f5fcd80
+guid: 4f90dec3fb98c4d039a561bc17013c70
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -10,9 +10,10 @@ ModelImporter:
     100008: bevelPolygon4
     100010: bevelPolygon5
     100012: bevelPolygon6
-    100014: group1
-    100016: group2
-    100018: group3
+    100014: bevelPolygon7
+    100016: group1
+    100018: group2
+    100020: group3
     400000: //RootNode
     400002: bevelPolygon1
     400004: bevelPolygon2
@@ -20,9 +21,10 @@ ModelImporter:
     400008: bevelPolygon4
     400010: bevelPolygon5
     400012: bevelPolygon6
-    400014: group1
-    400016: group2
-    400018: group3
+    400014: bevelPolygon7
+    400016: group1
+    400018: group2
+    400020: group3
     2100000: lambert1
     2300000: bevelPolygon1
     2300002: bevelPolygon2
@@ -30,18 +32,21 @@ ModelImporter:
     2300006: bevelPolygon4
     2300008: bevelPolygon5
     2300010: bevelPolygon6
+    2300012: bevelPolygon7
     3300000: bevelPolygon1
     3300002: bevelPolygon2
     3300004: bevelPolygon3
     3300006: bevelPolygon4
     3300008: bevelPolygon5
     3300010: bevelPolygon6
+    3300012: bevelPolygon7
     4300000: bevelPolygon2
     4300002: bevelPolygon1
     4300004: bevelPolygon3
     4300006: bevelPolygon4
     4300008: bevelPolygon5
     4300010: bevelPolygon6
+    4300012: bevelPolygon7
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -92,7 +97,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

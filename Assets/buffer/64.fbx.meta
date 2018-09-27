@@ -1,74 +1,26 @@
 fileFormatVersion: 2
-guid: dc081ab05814e43638407e387958e8de
+guid: 5ef4ac7e640a04d63ac3ddaac42e04f8
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     100002: bevelPolygon1
-    100004: bevelPolygon10
-    100006: bevelPolygon11
-    100008: bevelPolygon2
-    100010: bevelPolygon3
-    100012: bevelPolygon4
-    100014: bevelPolygon5
-    100016: bevelPolygon6
-    100018: bevelPolygon7
-    100020: bevelPolygon8
-    100022: bevelPolygon9
-    100024: group1
-    100026: group2
-    100028: group3
-    100030: group4
+    100004: bevelPolygon2
+    100006: bevelPolygon3
     400000: //RootNode
     400002: bevelPolygon1
-    400004: bevelPolygon10
-    400006: bevelPolygon11
-    400008: bevelPolygon2
-    400010: bevelPolygon3
-    400012: bevelPolygon4
-    400014: bevelPolygon5
-    400016: bevelPolygon6
-    400018: bevelPolygon7
-    400020: bevelPolygon8
-    400022: bevelPolygon9
-    400024: group1
-    400026: group2
-    400028: group3
-    400030: group4
+    400004: bevelPolygon2
+    400006: bevelPolygon3
     2100000: lambert1
     2300000: bevelPolygon1
-    2300002: bevelPolygon10
-    2300004: bevelPolygon11
-    2300006: bevelPolygon2
-    2300008: bevelPolygon3
-    2300010: bevelPolygon4
-    2300012: bevelPolygon5
-    2300014: bevelPolygon6
-    2300016: bevelPolygon7
-    2300018: bevelPolygon8
-    2300020: bevelPolygon9
+    2300002: bevelPolygon2
+    2300004: bevelPolygon3
     3300000: bevelPolygon1
-    3300002: bevelPolygon10
-    3300004: bevelPolygon11
-    3300006: bevelPolygon2
-    3300008: bevelPolygon3
-    3300010: bevelPolygon4
-    3300012: bevelPolygon5
-    3300014: bevelPolygon6
-    3300016: bevelPolygon7
-    3300018: bevelPolygon8
-    3300020: bevelPolygon9
-    4300000: bevelPolygon2
-    4300002: bevelPolygon1
-    4300004: bevelPolygon6
-    4300006: bevelPolygon5
-    4300008: bevelPolygon4
-    4300010: bevelPolygon3
-    4300012: bevelPolygon7
-    4300014: bevelPolygon8
-    4300016: bevelPolygon9
-    4300018: bevelPolygon10
-    4300020: bevelPolygon11
+    3300002: bevelPolygon2
+    3300004: bevelPolygon3
+    4300000: bevelPolygon1
+    4300002: bevelPolygon2
+    4300004: bevelPolygon3
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -119,7 +71,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

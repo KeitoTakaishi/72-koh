@@ -5,9 +5,11 @@ using UnityEngine;
 public class Place : MonoBehaviour {
     public GameObject[] fonts;
     Vector3[] pos;
-    const int num = 10;
+    const int num = 71;
     float stepDegree;
-    float radius = 10.0f;
+    float radius = 100.0f;
+    [SerializeField]
+    Material mat;
 	void Start () {
         fonts = new GameObject[num];
         pos = new Vector3[num];
@@ -22,6 +24,8 @@ public class Place : MonoBehaviour {
 
             fonts[i] = Instantiate(fonts[i], pos[i], Quaternion.identity);
             fonts[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            //fonts[i].AddComponent<Renderer>();
+            //fonts[i].GetComponent<Renderer>().material = mat;
         }
 	}
 	
