@@ -7,9 +7,8 @@ public class Place : MonoBehaviour {
     Vector3[] pos;
     const int num = 71;
     float stepDegree;
-    float radius = 100.0f;
-    [SerializeField]
-    Material mat;
+    float radius = 40.0f;
+
 	void Start () {
         fonts = new GameObject[num];
         pos = new Vector3[num];
@@ -18,14 +17,13 @@ public class Place : MonoBehaviour {
 
 
         for (int i = 0; i < fonts.Length; i++){
-            string index = (i + 1).ToString();
+            string index = "RowModel/row"+(i + 1).ToString();
             fonts[i] = (GameObject)Resources.Load(index);
             pos[i] = new Vector3(radius * Mathf.Sin(stepDegree * i), 0.0f, radius * Mathf.Cos(stepDegree * i));
 
             fonts[i] = Instantiate(fonts[i], pos[i], Quaternion.identity);
             fonts[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            //fonts[i].AddComponent<Renderer>();
-            //fonts[i].GetComponent<Renderer>().material = mat;
+           
         }
 	}
 	
