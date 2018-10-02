@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{2C9D19A7-AD76-3885-39BF-EED01EF3FA11}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GenerateMesh.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/CSV/temp.csv">
     <Files>
       <File FileName="Assets/Scripts/rePlace.cs" Line="9" Column="19" />
-      <File FileName="Assets/Scripts/CreateCSV.cs" Line="11" Column="6" />
-      <File FileName="Assets/Scripts/GenerateMesh.cs" Line="23" Column="36" NotebookId="1" />
-      <File FileName="Assets/SoundTest.cs" Line="9" Column="45" NotebookId="1" />
+      <File FileName="Assets/Scripts/CreateCSV.cs" Line="12" Column="9" />
+      <File FileName="Assets/Resources/CSV/ModifyData.csv" Line="10958" Column="9" />
+      <File FileName="Assets/Shaders/Vertex.shader" Line="57" Column="2" />
+      <File FileName="Assets/Scripts/GenerateMesh.cs" Line="92" Column="29" />
+      <File FileName="Assets/Resources/CSV/temp.csv" Line="10959" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
