@@ -5,6 +5,7 @@
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
+        _Amp ("Amplitude", Range(0.0, 10.0))  = 10.0
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -25,6 +26,7 @@
 		half _Glossiness;
 		half _Metallic;
 		fixed4 _Color;
+        float _Amp;
 
         struct v2f {
                 float4 pos : SV_POSITION;
@@ -40,8 +42,8 @@
             {
                 v2f o;
                 float3 p;
-                float r = rand(v.vertex.xz);
-                p = v.vertex.xyz + v.normal * r * 10.0 * sin(_Time.x*100.0+v.vertex.x*100.0+v.vertex.y+v.vertex.z);
+                //float r = rand(v.vertex.xz);
+                p = v.vertex.xyz + v.normal * _Amp * sin(_Time.x*100.0+v.vertex.x*100.0+v.vertex.y+v.vertex.z);
                 o.pos = UnityObjectToClipPos(p);
                 o.color.w = 1.0;
                 return o;

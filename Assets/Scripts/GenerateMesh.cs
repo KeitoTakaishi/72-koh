@@ -27,6 +27,7 @@ namespace MainScene
 
             ModifyData = new List<string>();
             //CSVData -> Year:temperature
+
             _CreateCSV = GameObject.Find("CSV").GetComponent<CreateCSV>();
             _CreateCSV.LoadFile(ref ModifyData, "ModifyData");
 
@@ -39,13 +40,14 @@ namespace MainScene
 
             SevrntyTwoDataBase(ModifyData, ref tempData);
 
-            /*
+
+            //CreateMesh
             mesh = new Mesh();
-            mesh = CreateMesh(ref mesh, tempData);
+            mesh = CreateMesh(ref mesh, tempData[0]);
             mf = GetComponent<MeshFilter>();
             mf.sharedMesh = mesh;
             mf.mesh.SetIndices(mf.mesh.GetIndices(0), MeshTopology.LineStrip, 0);
-            */
+
         }
 
         void Update()
@@ -81,7 +83,7 @@ namespace MainScene
             CurDate = 0;
 
 
-            Debug.Log("count;" + data.Count);
+            //Debug.Log("count;" + data.Count);
 
             for (int i = 0; i < data.Count;)
             {
@@ -98,7 +100,6 @@ namespace MainScene
                     {
                         CurSeason = 0;
                     }
-                    Debug.Log(i);
                 }else{
                     if (CurSeason != 11){
                         for (int j = 0; j < CycleData[CurSeason]; j++)
@@ -125,15 +126,17 @@ namespace MainScene
         } 
 
 
-        private Mesh CreateMesh(ref Mesh mesh, List<string>data){
+        private Mesh CreateMesh(ref Mesh mesh, List<float>data){
+
+            Debug.Log(data.Count);
             List<Vector3> vertex = new List<Vector3>();
             List<int> index = new List<int>();
-            int Date = data.Count/2;
+            int Date = data.Count;
             int ArrIndex = 0;
-            for (int i = 0; i < Date*2.0; i+=2){
-                
-                vertex.Add(new Vector3((-Date/2 + ArrIndex)*0.2f, float.Parse(data[i+1]), 0.0f));
-                index.Add(i / 2);
+            float StepSize = 1.0f;
+            for (int i = 0; i < Date; i++){
+                vertex.Add(new Vector3((-Date/2 + ArrIndex)*StepSize, data[i], 0.0f));
+                index.Add(i);
                 ArrIndex++;
             }
            

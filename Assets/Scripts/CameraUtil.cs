@@ -22,7 +22,6 @@ public class CameraUtil : MonoBehaviour
     InterpolationMode im;
     void Start()
     {
-        target = GameObject.Find("target");
         bufferpos = this.transform.position;
 
     }
@@ -46,7 +45,7 @@ public class CameraUtil : MonoBehaviour
             transform.position = Vector3.Slerp(bufferpos, nextPos, t);
         }
         transform.LookAt(target.transform);
-        t += Time.deltaTime * Random.Range(1.5f, 5.5f);
+        t += Time.deltaTime;
         if (t > 1.0f){
             t = 1.0f;
         }
@@ -57,7 +56,7 @@ public class CameraUtil : MonoBehaviour
 
     Vector3 InterpolationLerp(Vector3 from, Vector3 to, float time){
         Vector3 dir = to - from;
-        Vector3 result = dir * time;
+        Vector3 result = to + dir * time;
         return result;
     }
 
