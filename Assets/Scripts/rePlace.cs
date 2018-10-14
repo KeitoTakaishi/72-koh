@@ -59,7 +59,7 @@ public class rePlace : MonoBehaviour {
             modifyPos.Add(child[i].transform.position);
             dir.Add((initPos[i] - modifyPos[i]).normalized);
             if (childNum == 3){
-                child[i].transform.localScale = new Vector3(0.9f,0.9f,0.9f);
+                child[i].transform.localScale = new Vector3(0.85f,0.85f,0.85f);
             }
             //change material
             var gChildNum = child[i].transform.childCount;
@@ -69,5 +69,4 @@ public class rePlace : MonoBehaviour {
             }
         }
     }
-
 }

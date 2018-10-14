@@ -33,7 +33,7 @@ public class SentenceGenerator : MonoBehaviour
     void Start()
     {
         ReadFile();
-        SenData = new String[2];
+        SenData = new String[num];
         for(int i = 0; i < SenData.Length; i++)
         {
             SenData[i] = "";

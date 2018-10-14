@@ -196,6 +196,7 @@
           <e p="CreateCSV.cs" t="Include" />
           <e p="GenerateMesh.cs" t="Include" />
           <e p="Place.cs" t="Include" />
+          <e p="PostEffectApply.cs" t="Include" />
           <e p="rePlace.cs" t="Include" />
           <e p="SentenceGenerator.cs" t="Include" />
           <e p="SoundTest.cs" t="Include" />
@@ -203,7 +204,11 @@
           <e p="TextTransform.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
+          <e p="EdgeFx.shader" t="Include" />
+          <e p="GlitchFx.shader" t="Include" />
           <e p="mat.shader" t="Include" />
+          <e p="SimplexNoise2D.cginc" t="Include" />
+          <e p="SimplexNoise3D.cginc" t="Include" />
           <e p="test.shader" t="Include" />
           <e p="Vertex.shader" t="Include" />
         </e>
