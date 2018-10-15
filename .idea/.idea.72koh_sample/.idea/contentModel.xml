@@ -6,6 +6,7 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Dissolve.shader" t="Include" />
         <e p="Osc" t="Include">
           <e p="src" t="Include">
             <e p="Editor" t="Include">
@@ -192,6 +193,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AsyncTest.cs" t="Include" />
+          <e p="CameraController.cs" t="Include" />
           <e p="CameraUtil.cs" t="Include" />
           <e p="CreateCSV.cs" t="Include" />
           <e p="GenerateMesh.cs" t="Include" />
@@ -204,11 +206,14 @@
           <e p="TextTransform.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
+          <e p="ConvertFx.shader" t="Include" />
           <e p="EdgeFx.shader" t="Include" />
+          <e p="FeedBackFx.shader" t="Include" />
           <e p="GlitchFx.shader" t="Include" />
           <e p="mat.shader" t="Include" />
           <e p="SimplexNoise2D.cginc" t="Include" />
           <e p="SimplexNoise3D.cginc" t="Include" />
+          <e p="SymmetryFx.shader" t="Include" />
           <e p="test.shader" t="Include" />
           <e p="Vertex.shader" t="Include" />
         </e>

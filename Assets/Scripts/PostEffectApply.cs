@@ -27,7 +27,7 @@ public class PostEffectApply : MonoBehaviour
     void Update()
     {
         //if (Input.GetKeyDown("m"))
-        if(Time.frameCount % 45 == 0)
+        if(Time.frameCount % 60 == 0)
         {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
             curentId = (curentId + 1) % _MatArraay.Length;
             mat = _MatArraay[curentId];

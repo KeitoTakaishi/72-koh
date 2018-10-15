@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityScript.Lang;
 
 [DefaultExecutionOrder(-1)]
 public class Place : MonoBehaviour {	
@@ -13,6 +14,32 @@ public class Place : MonoBehaviour {
     float stepDegree;
     float radius = 40.0f;
 	private Vector3[] rootPos;
+
+	struct MovePattern
+	{
+		private bool _isCircle;
+		private bool _isVertical;
+
+		public bool IsCircle
+		{
+			get { return _isCircle; }
+			set { _isCircle = value; }
+		}
+		
+		public bool IsVertical
+		{
+			get { return _isVertical; }
+			set { _isVertical = value; }
+		}
+
+		public MovePattern(bool _circle, bool _vertical)
+		{
+			_isCircle = _circle;
+			_isVertical = _vertical;
+		}
+	}
+	private MovePattern movePattern;
+	private int[] AlignmentSelect;
 	#endregion
 
 	#region Property
@@ -35,32 +62,75 @@ public class Place : MonoBehaviour {
 		vel = new Vector3[num];
 		stepDegree = 2.0f*Mathf.PI / num;
 		rootPos = new Vector3[num];
+		movePattern = new MovePattern(true, false);
+		AlignmentSelect = new int[2]{0,0};
 	}
 
 	void Start () {
         GeneText();
-		Alignment();
+		CirclePalace();
 	}
 	
 	void Update () {
-		SlideUpdatePos();
+		if (Time.frameCount % 1000 > 500)
+		{
+			//cicle type
+			Debug.Log("Circle");
+			movePattern.IsCircle = true;
+			movePattern.IsVertical = false;
+			if (AlignmentSelect[0] == 0)
+			{
+				CirclePalace();
+			}
+			AlignmentSelect[0]++;
+			AlignmentSelect[1] = 0;
+		}
+		else{
+			//Vertical type
+			Debug.Log("Vertical");
+			movePattern.IsVertical = true;
+			movePattern.IsCircle = false;
+			if (AlignmentSelect[1] == 0)
+			{
+				Alignment();
+			}
+			AlignmentSelect[1]++;
+			AlignmentSelect[0] = 0;
+		}
+		
+		
+		//動きのパターンの制御
+		if (movePattern.IsCircle){
+			RotateText();
+		}
+
+		if (movePattern.IsVertical){
+			SlideUpdatePos();
+		}
 	}
 	
 	#endregion
 
 	#region PrivateFunc
+	//円周状に配置
 	void GeneText()
 	{
 		var path = "RowModel/row";
 		for (int i = 0; i < fonts.Length; i++){
 			string index = path + (i + 1).ToString();
 			fonts[i] = (GameObject)Resources.Load(index);
-			pos[i] = new Vector3(radius * Mathf.Sin(stepDegree * i), 0.0f, radius * Mathf.Cos(stepDegree * i));
-			fonts[i] = Instantiate(fonts[i], pos[i], Quaternion.identity);
-			fonts[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+			fonts[i] = Instantiate(fonts[i]);
 		}
 	}
 
+	void CirclePalace()
+	{
+		for (int i = 0; i < fonts.Length; i++){
+			pos[i] = new Vector3(radius * Mathf.Sin(stepDegree * i), 0.0f, radius * Mathf.Cos(stepDegree * i));
+			fonts[i].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+		}
+	}
+	//円周上に回転
 	void RotateText()
 	{
 		for (int i = 0; i < fonts.Length; i++)
@@ -71,7 +141,7 @@ public class Place : MonoBehaviour {
 			rootPos[i] = pos[i];
 		}
 	}
-
+	//縦に配置
 	void Alignment()
 	{
 		int row = 8;
@@ -91,7 +161,7 @@ public class Place : MonoBehaviour {
 			}
 		}
 	}
-	
+	//縦にスライド
 	private void SlideUpdatePos()
 	{
 		int row = 8;
