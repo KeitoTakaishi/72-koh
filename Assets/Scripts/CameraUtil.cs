@@ -28,7 +28,7 @@ public class CameraUtil : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Time.frameCount % 30 == 0)
         {
             bufferpos = this.transform.position;
             nextPos = Random.insideUnitSphere * rad;

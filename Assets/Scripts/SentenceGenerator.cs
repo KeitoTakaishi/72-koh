@@ -95,7 +95,7 @@ public class SentenceGenerator : MonoBehaviour
 
     void SelectData(int id)
     {
-        //Debug.Log(SenData[id-1]);
+        //\nを必要がある
         tm.text = SenData[id - 1];
     }
 
