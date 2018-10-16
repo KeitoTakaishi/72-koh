@@ -197,6 +197,7 @@
           <e p="CameraUtil.cs" t="Include" />
           <e p="CreateCSV.cs" t="Include" />
           <e p="GenerateMesh.cs" t="Include" />
+          <e p="OSCServer.cs" t="Include" />
           <e p="Place.cs" t="Include" />
           <e p="PostEffectApply.cs" t="Include" />
           <e p="rePlace.cs" t="Include" />
@@ -221,6 +222,47 @@
           <e p="SimpleJSON.cs" t="Include" />
           <e p="SimpleJSONBinary.cs" t="Include" />
           <e p="SimpleJSONUnity.cs" t="Include" />
+        </e>
+        <e p="uOSC" t="Include">
+          <e p="Assets" t="Include">
+            <e p="uOSC" t="Include">
+              <e p="Examples" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="ClientBlobTest.cs" t="Include" />
+                  <e p="ClientBundleTest.cs" t="Include" />
+                  <e p="ClientTest.cs" t="Include" />
+                  <e p="ServerBlobTest.cs" t="Include" />
+                  <e p="ServerTest.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="Core" t="Include">
+                  <e p="Bundle.cs" t="Include" />
+                  <e p="DotNet" t="Include">
+                    <e p="Thread.cs" t="Include" />
+                    <e p="Udp.cs" t="Include" />
+                  </e>
+                  <e p="Message.cs" t="Include" />
+                  <e p="Parser.cs" t="Include" />
+                  <e p="Reader.cs" t="Include" />
+                  <e p="Thread.cs" t="Include" />
+                  <e p="Timestamp.cs" t="Include" />
+                  <e p="Udp.cs" t="Include" />
+                  <e p="Util.cs" t="Include" />
+                  <e p="Uwp" t="Include">
+                    <e p="Thread.cs" t="Include" />
+                    <e p="Udp.cs" t="Include" />
+                  </e>
+                  <e p="Writer.cs" t="Include" />
+                </e>
+                <e p="uOscClient.cs" t="Include" />
+                <e p="uOscServer.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="ProjectSettings" t="Include">
+            <e p="ProjectVersion.txt" t="Include" />
+          </e>
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />

@@ -6,7 +6,7 @@ using UnityEngine.Assertions.Comparers;
 
 public class OscManager : MonoBehaviour
 {
-    private string _prefix = "/1/toggle";
+    private string _prefix = "/1/push";
     private int _id;
 
     

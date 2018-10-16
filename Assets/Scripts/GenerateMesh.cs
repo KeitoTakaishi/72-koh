@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * 72候用のデータ配列を格納するスクリプト
+ * 5日x10年
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,8 +22,6 @@ namespace MainScene
         private Mesh mesh;
         private MeshFilter mf;
 
-
-
         void Start()
         {
             //cycle日数をセット
@@ -30,7 +33,6 @@ namespace MainScene
 
             _CreateCSV = GameObject.Find("CSV").GetComponent<CreateCSV>();
             _CreateCSV.LoadFile(ref ModifyData, "ModifyData");
-
 
 
             tempData = new List<float>[num];

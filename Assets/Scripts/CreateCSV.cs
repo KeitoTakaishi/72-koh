@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-
-
 namespace MainScene
 {
     public class CreateCSV : MonoBehaviour
     {
-
         //csv data
         private List<string> data = new List<string>();
 
