@@ -6,7 +6,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Dissolve.shader" t="Include" />
         <e p="Osc" t="Include">
           <e p="src" t="Include">
             <e p="Editor" t="Include">
@@ -191,8 +190,12 @@
             </e>
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="Shader" t="Include">
+            <e p="Dissolve.shader" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
-          <e p="AsyncTest.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="CameraUtil.cs" t="Include" />
           <e p="CreateCSV.cs" t="Include" />
@@ -222,6 +225,18 @@
           <e p="SimpleJSON.cs" t="Include" />
           <e p="SimpleJSONBinary.cs" t="Include" />
           <e p="SimpleJSONUnity.cs" t="Include" />
+        </e>
+        <e p="Test" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="AsyncTest.cs" t="Include" />
+            <e p="CoRoutine.cs" t="Include" />
+            <e p="Ornament.cs" t="Include" />
+            <e p="StringRemove.cs" t="Include" />
+            <e p="Wire.cs" t="Include" />
+          </e>
+          <e p="Shader" t="Include">
+            <e p="TestFont.shader" t="Include" />
+          </e>
         </e>
         <e p="uOSC" t="Include">
           <e p="Assets" t="Include">

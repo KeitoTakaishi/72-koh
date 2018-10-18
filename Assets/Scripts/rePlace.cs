@@ -28,7 +28,7 @@ public class rePlace : MonoBehaviour {
 
     void Start () {
 
-        mat = Resources.Load("ModelMat") as Material;
+        mat = Resources.Load("Material/ModelMat") as Material;
         //mat = Resources.Load("Dissolve") as Material;
         VerticalLayoutPos();
 	}

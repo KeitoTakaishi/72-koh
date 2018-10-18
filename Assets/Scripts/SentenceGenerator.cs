@@ -14,7 +14,7 @@ using System.Text;
 using System.Xml;
 using uOSC;
 
-
+[DefaultExecutionOrder(-1)]
 public class SentenceGenerator : MonoBehaviour
 {
     #region Variable
@@ -29,17 +29,17 @@ public class SentenceGenerator : MonoBehaviour
     TextMesh tm;
     Vector2 screenSize;
     public Camera cam;
+    private bool isChanging = true;
 
     #endregion
 
     void Start()
     {
-        
         ReadFile();
-        
         SenData = new String[num];
         InitStr(ref SenData);    
         LoadData(ref SenData);
+        ModifyData(10);
         oscServer = OCS.GetComponent < OSCServer >();
         tm = this.GetComponent<TextMesh>();
     }
@@ -48,32 +48,22 @@ public class SentenceGenerator : MonoBehaviour
     {
         var w = Screen.width;
         var h = Screen.height;
-        Vector3 anchor = new Vector3(w/2.0f, h*0.5f, 0.0f);
-//        var pos = cam.ScreenToWorldPoint(anchor);
-//        Debug.Log(cam.ScreenToWorldPoint(anchor));
-//        this.transform.position = new Vector3(0.0f, 5.0f*Mathf.Sin(Time.realtimeSinceStartup), 0.0f);
-        
-        
+        Vector3 anchor = new Vector3(w*0.5f, h*0.5f, 0.0f);
+      
         Vector3 screen_point = anchor;
         screen_point.z = 10.0f; 
         this.transform.position = Camera.main.ScreenToWorldPoint(screen_point);
         Judge(ref tempId, oscServer.ID);
     }
 
+
+
     //jsonDataを生成
     void ReadFile()
     {
-        m_jsonFilePath = Application.dataPath + "/Json/ExpressSentence.json";
+        m_jsonFilePath = Application.streamingAssetsPath + "/Json/ExpressSentence.json";
         string fileText = "";
-        //Debug.Log(m_jsonFilePath.ToString());
-        /*
-        if (File.Exists(Application.dataPath + m_jsonFilePath))
-        {
-            cam.backgroundColor = Color.red;
-            Debug.Log("Suc");
-        }
-        */
-        
+       
         FileInfo file = new FileInfo(m_jsonFilePath);
         
         using (StreamReader sr = new StreamReader(file.OpenRead(), Encoding.UTF8))
@@ -81,7 +71,6 @@ public class SentenceGenerator : MonoBehaviour
             fileText = sr.ReadToEnd();
             // JSONをパースして値を取り出す
             m_jsonData = JSONNode.Parse(fileText);
-            cam.backgroundColor = Color.blue;
         }
         
     }
@@ -104,26 +93,32 @@ public class SentenceGenerator : MonoBehaviour
 
     void Judge(ref int temp, int oscID)
     {
-
         if (temp != oscID)
         {
             SelectData(oscID);
             temp = oscID;
         }
     }
-
+    //offsetによって2/4の東風解凍からのスタートになっている
     void SelectData(int id)
-    { 
-        var senLen = 10;
-        var len = SenData[id - 1].Length;
-        var paraNum = len / senLen;
-        for (int i = 0; i < paraNum; i++)
-        {
-          SenData[id - 1] = SenData[id-1].Insert(senLen*(i+1), "\n");
-        }
-        //\nを必要がある
+    {
         tm.text = SenData[id - 1];
-        
+    }
+    
+    //modify data->改行の挿入
+    void ModifyData(int senLen)
+    {
+        for (int id = 1; id <= 72; id++)
+        {
+            var len = SenData[id - 1].Length;
+            var paraNum = len / senLen;
+            string temp = null;
+
+            for (int i = 0; i < paraNum; i++)
+            {
+                SenData[id - 1] = SenData[id - 1].Insert(senLen * (i + 1) + i, "\n");
+            }
+        }
     }
 
 }
