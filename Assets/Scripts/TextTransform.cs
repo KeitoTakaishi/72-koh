@@ -2,7 +2,7 @@
  textの複製と動きのエフェクトを作成している
  
  todo 
- - oscの値を確認して変わったタイミングで文字を変更
+ - oscの値を確認して変わったタイミングで文字を生成,変更
  - その後，複製
  */
 
@@ -25,7 +25,7 @@ public class TextTransform : MonoBehaviour {
 	    GenerateText();
     }
 
-    void Update ()
+   void Update ()
     {
         if (Input.GetMouseButton(0))
         {
@@ -44,12 +44,13 @@ public class TextTransform : MonoBehaviour {
     void GenerateText()
     {
         originalSen = GameObject.Find("SubMessage");
+        //originalSen = Resources.Load("SubMessage") as GameObject;
         effectSen = new GameObject[num];
         effectTextMesh = new TextMesh[num];
         for (int i = 0; i < num; i++)
         {
             effectSen[i] = Instantiate(pref, originalSen.transform.position, Quaternion.identity) as GameObject;
-            Debug.Log(originalSen.transform.position);
+            //Debug.Log(originalSen.transform.position);
             effectSen[i].transform.localScale = originalSen.transform.localScale;
             effectTextMesh[i] = effectSen[i].GetComponent < TextMesh >();
         }

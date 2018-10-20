@@ -199,6 +199,7 @@
           <e p="CameraController.cs" t="Include" />
           <e p="CameraUtil.cs" t="Include" />
           <e p="CreateCSV.cs" t="Include" />
+          <e p="CreateDBFromCSV.cs" t="Include" />
           <e p="GenerateMesh.cs" t="Include" />
           <e p="OSCServer.cs" t="Include" />
           <e p="Place.cs" t="Include" />
@@ -207,6 +208,7 @@
           <e p="SentenceGenerator.cs" t="Include" />
           <e p="SoundTest.cs" t="Include" />
           <e p="TestMeshOpe.cs" t="Include" />
+          <e p="TextAnimStateMachine.cs" t="Include" />
           <e p="TextTransform.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
@@ -230,6 +232,7 @@
           <e p="Scripts" t="Include">
             <e p="AsyncTest.cs" t="Include" />
             <e p="CoRoutine.cs" t="Include" />
+            <e p="MotionStateMachine.cs" t="Include" />
             <e p="Ornament.cs" t="Include" />
             <e p="StringRemove.cs" t="Include" />
             <e p="Wire.cs" t="Include" />

@@ -22,6 +22,17 @@ namespace uOSC
 			server.onDataReceived.AddListener(OnDataReceived);
 		}
 
+		//Debug用
+		void Update()
+		{
+			if (Input.GetKeyDown(KeyCode.A)){
+				ID = 1;
+			}else if(Input.GetKeyDown(KeyCode.B))
+			{
+				ID = 2;
+			}
+		}
+
 		void OnDataReceived(Message message)
 		{
 			/*

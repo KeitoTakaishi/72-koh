@@ -12,7 +12,7 @@ namespace MainScene
 
         void Start()
         {
-            //存在してない場合のみ生成
+            //毎回処理をすると重いので，形成後のファイル存在してない場合のみ生成
             if (!(System.IO.File.Exists(Application.dataPath + "/Resources/CSV/ModifyData.csv")))
             {
                 ReadCSV(ref data, "temp");//date,temp
@@ -21,9 +21,10 @@ namespace MainScene
                 Debug.Log("exist");
             }
         }
-
-
-        #region ReadCSV
+        
+        #region Func
+        
+        //オリジナルのCSVファイルの読み込み
         public void ReadCSV(ref List<string> data, string FileName)
         {
             var csvFile = Resources.Load("csv/" + FileName) as TextAsset;
@@ -38,27 +39,15 @@ namespace MainScene
                 data.AddRange(_SplitList);
             }
         }
-        #endregion
-
-        #region LoadCSV
-        public void LoadFile(ref List<string> data, string FileName)
-        {
-            var csvFile = Resources.Load("csv/" + FileName) as TextAsset;
-            var reader = new StringReader(csvFile.text);
-            while (reader.Peek() > -1)
-            {
-                string lineData = reader.ReadLine();
-                data.Add(lineData);
-            }
-        }
-        #endregion
-
-        #region WriteCSV
+        
+        //年度と気温データだけ抽出してファイル書き出しを行っている
         private void WriteCSV(ref List<string> data)
         {
             StreamWriter sw;
             FileInfo fi;
             string str = null;
+            
+            
             for (int i = 0; i < data.Count; i+=2)
             {
                 //date + temperature
@@ -70,6 +59,18 @@ namespace MainScene
             sw.WriteLine(str);
             sw.Flush();
             sw.Close();
+        }
+        
+        //第2引数で指定したファイルをロードしてstringListへ変換
+        public void LoadFile(ref List<string> data, string FileName)
+        {
+            var csvFile = Resources.Load("csv/" + FileName) as TextAsset;
+            var reader = new StringReader(csvFile.text);
+            while (reader.Peek() > -1)
+            {
+                string lineData = reader.ReadLine();
+                data.Add(lineData);
+            }
         }
         #endregion
     }
