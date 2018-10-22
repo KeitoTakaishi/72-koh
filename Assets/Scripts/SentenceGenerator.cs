@@ -13,6 +13,7 @@ using SimpleJSON;
 using System.Text;
 using System.Xml;
 using uOSC;
+using UnityEngine.Rendering;
 
 [DefaultExecutionOrder(-1)]
 public class SentenceGenerator : MonoBehaviour
@@ -22,7 +23,7 @@ public class SentenceGenerator : MonoBehaviour
     private string m_jsonFilePath;
     private JSONNode m_jsonData;
     private int num = 72;
-    private string[] SenData;
+    private string[] _senData;
     public GameObject OCS;
     private OSCServer oscServer;
     private int tempId=0;
@@ -30,18 +31,28 @@ public class SentenceGenerator : MonoBehaviour
     Vector2 screenSize;
     public Camera cam;
     private bool isChanging = true;
-
+    
     #endregion
+
+    public string[] SenData
+    {
+        get { return _senData; }
+    }
+    
 
     void Start()
     {
         ReadFile();
-        SenData = new String[num];
-        InitStr(ref SenData);    
-        LoadData(ref SenData);
+        _senData = new String[num];
+        InitStr(ref _senData);    
+        LoadData(ref _senData);
         ModifyData(10);
         oscServer = OCS.GetComponent < OSCServer >();
         tm = this.GetComponent<TextMesh>();
+
+
+        
+
     }
 
     void Update()
@@ -51,9 +62,14 @@ public class SentenceGenerator : MonoBehaviour
         Vector3 anchor = new Vector3(w*0.5f, h*0.5f, 0.0f);
       
         Vector3 screen_point = anchor;
-        screen_point.z = 10.0f; 
-        this.transform.position = Camera.main.ScreenToWorldPoint(screen_point);
-        Judge(ref tempId, oscServer.ID);
+        screen_point.z = 10.0f;
+
+        var mode = 0;
+        //1text
+        if (mode == 0){
+            Judge(ref tempId, oscServer.ID);
+            this.transform.position = Camera.main.ScreenToWorldPoint(screen_point);
+        }//allTexts -> roll
     }
 
 
@@ -102,7 +118,7 @@ public class SentenceGenerator : MonoBehaviour
     //offsetによって2/4の東風解凍からのスタートになっている
     void SelectData(int id)
     {
-        tm.text = SenData[id - 1];
+        tm.text = _senData[id - 1];
     }
     
     //modify data->改行の挿入
@@ -110,13 +126,13 @@ public class SentenceGenerator : MonoBehaviour
     {
         for (int id = 1; id <= 72; id++)
         {
-            var len = SenData[id - 1].Length;
+            var len = _senData[id - 1].Length;
             var paraNum = len / senLen;
             string temp = null;
 
             for (int i = 0; i < paraNum; i++)
             {
-                SenData[id - 1] = SenData[id - 1].Insert(senLen * (i + 1) + i, "\n");
+                _senData[id - 1] = _senData[id - 1].Insert(senLen * (i + 1) + i, "\n");
             }
         }
     }

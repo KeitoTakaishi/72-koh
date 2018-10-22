@@ -6,20 +6,26 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine.Assertions.Comparers;
 
+[DefaultExecutionOrder(-1)]
 public class CreateDBFromCSV : MonoBehaviour
 {
 	private CreateCSV _CreateCSV;
 	private const int num = 72;
 	private int[] CycleData;
-	private List < string > ModifyData;
-	private List < float >[] tempData;
-	private List < float >[] OrderdTempData;
+	private List < string > _ModifyData;
+	private List < float >[] _tempData;
+	private List < float >[] _orderdTempData;
+
+	public List<float>[] OrderdTempData
+	{
+		get { return _orderdTempData;}
+	}
 
 
 	void Start()
 	{
 		Initialize();
-		_CreateCSV.LoadFile(ref ModifyData, "ModifyData");
+		_CreateCSV.LoadFile(ref _ModifyData, "ModifyData");
 		SevrntyTwoDataBase();// 1/1から順に格納されているので変更する必要がある	
 		Order();
 	}
@@ -32,10 +38,10 @@ public class CreateDBFromCSV : MonoBehaviour
 	private void Initialize()
 	{
 		CycleData = new int[num];
-		ModifyData = new List <string>();
-		tempData=new List < float >[num];
+		_ModifyData = new List <string>();
+		_tempData=new List < float >[num];
 		for (int i = 0; i < num; i++){
-			tempData[i] = new List<float>();
+			_tempData[i] = new List<float>();
 		}
 		InitCycleData();
 		_CreateCSV = GameObject.Find("CSV").GetComponent<CreateCSV>();
@@ -67,14 +73,14 @@ public class CreateDBFromCSV : MonoBehaviour
 		CurDate = 0;
 
 
-		for (int i = 0; i < ModifyData.Count;)
+		for (int i = 0; i < _ModifyData.Count;)
 		{
-			if (int.Parse(ModifyData[i].Split(':')[0]) % 4 != 0)
+			if (int.Parse(_ModifyData[i].Split(':')[0]) % 4 != 0)
 			{
 				for (int j = 0; j < CycleData[CurSeason]; j++)
 				{
-					var t = float.Parse(ModifyData[i].Split(':')[1]);
-					tempData[CurSeason].Add(t);
+					var t = float.Parse(_ModifyData[i].Split(':')[1]);
+					_tempData[CurSeason].Add(t);
 					i++;
 				}
 				CurSeason += 1;
@@ -86,15 +92,15 @@ public class CreateDBFromCSV : MonoBehaviour
 				if (CurSeason != 11){
 					for (int j = 0; j < CycleData[CurSeason]; j++)
 					{
-						var t = float.Parse(ModifyData[i].Split(':')[1]);
-						tempData[CurSeason].Add(t);
+						var t = float.Parse(_ModifyData[i].Split(':')[1]);
+						_tempData[CurSeason].Add(t);
 						i++;
 					}
 				}else{
 					for (int j = 0; j < CycleData[CurSeason]+1; j++)
 					{
-						var t = float.Parse(ModifyData[i].Split(':')[1]);
-						tempData[CurSeason].Add(t);
+						var t = float.Parse(_ModifyData[i].Split(':')[1]);
+						_tempData[CurSeason].Add(t);
 						i++;
 					}
 				}
@@ -111,10 +117,10 @@ public class CreateDBFromCSV : MonoBehaviour
 	void Order()
 	{
 		
-		OrderdTempData = new List < float >[72];
+		_orderdTempData = new List < float >[72];
 		
 		for (int i = 0; i < CycleData.Length; i++){
-			OrderdTempData[i] = tempData[(i+7)%72];
+			_orderdTempData[i] = _tempData[(i+7)%72];
 		}
 	}
 }

@@ -206,6 +206,7 @@
           <e p="Place.cs" t="Include" />
           <e p="PostEffectApply.cs" t="Include" />
           <e p="rePlace.cs" t="Include" />
+          <e p="RollText.cs" t="Include" />
           <e p="SentenceGenerator.cs" t="Include" />
           <e p="SoundTest.cs" t="Include" />
           <e p="TestMeshOpe.cs" t="Include" />
