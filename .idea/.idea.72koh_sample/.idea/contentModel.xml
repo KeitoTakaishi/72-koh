@@ -196,6 +196,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="BaseTextMotion.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="CameraUtil.cs" t="Include" />
           <e p="CreateCSV.cs" t="Include" />

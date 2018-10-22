@@ -36,7 +36,7 @@ public class MotionStateMachine : MonoBehaviour {
 		for (int i = 0; i < 50; i++)
 		{
 
-			transform.Rotate(new Vector3(1.8f, 3.6f, 0));
+			transform.Rotate(new Vector3(0.0f, 3.6f, 0));
 			yield return null;
 		}
 		yield return new WaitForSeconds(0.1f);

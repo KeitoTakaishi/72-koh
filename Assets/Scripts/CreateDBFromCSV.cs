@@ -4,6 +4,7 @@ using MainScene;
 using UnityEngine;
 using System.Linq;
 using UnityEditor;
+using UnityEngine.Assertions.Comparers;
 
 public class CreateDBFromCSV : MonoBehaviour
 {
@@ -12,17 +13,20 @@ public class CreateDBFromCSV : MonoBehaviour
 	private int[] CycleData;
 	private List < string > ModifyData;
 	private List < float >[] tempData;
+	private List < float >[] OrderdTempData;
+
 
 	void Start()
 	{
 		Initialize();
 		_CreateCSV.LoadFile(ref ModifyData, "ModifyData");
-		SevrntyTwoDataBase();// 1/1から順に格納されているので変更する必要がある		
+		SevrntyTwoDataBase();// 1/1から順に格納されているので変更する必要がある	
+		Order();
 	}
 
 	void Update()
 	{
-	
+		
 	}
 
 	private void Initialize()
@@ -103,9 +107,14 @@ public class CreateDBFromCSV : MonoBehaviour
 		}
 	} 
 	
-	//利用出来る順にな並び替える	2/4が先頭になるようにする
+	//利用出来る順にな並び替える　2/4が先頭になるようにする
 	void Order()
 	{
 		
+		OrderdTempData = new List < float >[72];
+		
+		for (int i = 0; i < CycleData.Length; i++){
+			OrderdTempData[i] = tempData[(i+7)%72];
+		}
 	}
 }

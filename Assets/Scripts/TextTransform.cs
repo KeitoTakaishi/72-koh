@@ -9,6 +9,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Experimental.PlayerLoop;
 [DefaultExecutionOrder(1)]
 public class TextTransform : MonoBehaviour {
@@ -27,6 +28,7 @@ public class TextTransform : MonoBehaviour {
 
    void Update ()
     {
+ 
         if (Input.GetMouseButton(0))
         {
             CopyText();
@@ -43,14 +45,12 @@ public class TextTransform : MonoBehaviour {
     //effect用のテキストメッシュオブジェクトの生成
     void GenerateText()
     {
-        originalSen = GameObject.Find("SubMessage");
-        //originalSen = Resources.Load("SubMessage") as GameObject;
+        originalSen = GameObject.Find("SubMessage") as GameObject;
         effectSen = new GameObject[num];
         effectTextMesh = new TextMesh[num];
         for (int i = 0; i < num; i++)
         {
             effectSen[i] = Instantiate(pref, originalSen.transform.position, Quaternion.identity) as GameObject;
-            //Debug.Log(originalSen.transform.position);
             effectSen[i].transform.localScale = originalSen.transform.localScale;
             effectTextMesh[i] = effectSen[i].GetComponent < TextMesh >();
         }
@@ -62,6 +62,10 @@ public class TextTransform : MonoBehaviour {
         foreach (var s in effectTextMesh)
         {
             s.transform.position = originalSen.transform.position;
+            Quaternion r = originalSen.transform.rotation;
+            s.transform.rotation = r;
+          
+            
             s.text = originalSen.GetComponent < TextMesh >().text;
         }
     }
@@ -73,6 +77,5 @@ public class TextTransform : MonoBehaviour {
             var speed = (i - 1.5f) * 0.2f;
             effectSen[i].transform.position += new Vector3(speed, -speed, 0.0f);
         }
-    }
-    
+    }   
 }
