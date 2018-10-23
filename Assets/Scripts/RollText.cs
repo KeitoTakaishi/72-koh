@@ -23,6 +23,7 @@ public class RollText : MonoBehaviour
     public GameObject prefText;
     public GameObject generator;
     public float TextMotionSpeed = 0.1f;
+    public GameObject pivot;
 
 
     private List < float >[] _tempData;
@@ -74,12 +75,19 @@ public class RollText : MonoBehaviour
     
     void TextMoveDown()
     {
+        var _offSetZ = 10.0f; 
         for (int i = 0; i < num; i++)
         {
             if (_texts[i].transform.position.y < -_stepSize*2.0){
-                _texts[i].transform.position = new Vector3(TextEdgePos[0].x , (70*_stepSize), TextEdgePos[0].z);
+                //parentのoffset分引く
+                //_texts[i].transform.localPosition = new Vector3(Camera.main.transform.position.x , (70*_stepSize), Camera.main.transform.position.z + _offSetZ);
             }
-            _texts[i].transform.position -= new Vector3(0.0f, TextMotionSpeed, 0.0f);
+
+            var _pivotPos = pivot.transform.position;
+            
+            //_texts[i].transform.position = new Vector3(_pivotPos.x, _texts[i].transform.position.y-Camera.main.transform.up.y*0.1f, _pivotPos.z);
+            _texts[i].transform.position -= Camera.main.transform.up * 0.1f;
+            //_texts[i].transform.position -= new Vector3(0.0f, TextMotionSpeed, 0.0f);
         }
     }
 }

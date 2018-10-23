@@ -42,6 +42,7 @@ namespace MainScene
 
         void Update()
         {
+            this.transform.Rotate(new Vector3(0.0f, Time.deltaTime*5.0f, 0.0f));
             if (_viewTextController.OscId > 0 && _viewTextController.IsPush)
             {
                 var id = _viewTextController.OscId-1;
@@ -188,7 +189,7 @@ namespace MainScene
         {
             var _dataNum = data.Count;
             var _histograms = new GameObject[_dataNum];
-            var _radius = 30.0f;
+            var _radius = 45.0f;
             var _stepDeg = 360.0f / _dataNum;
             
             
@@ -202,6 +203,8 @@ namespace MainScene
                 _histograms[i] = Instantiate(histogram, new Vector3(_x, 0.0f, _z), Quaternion.Euler(0.0f, -1.0f*_stepDeg*i, 0.0f));
                 
                 _histograms[i].transform.localScale = new Vector3(1.0f, data[i], 1.0f);
+                _histograms[i].transform.SetParent(this.gameObject.transform);
+                
             }
         }
 

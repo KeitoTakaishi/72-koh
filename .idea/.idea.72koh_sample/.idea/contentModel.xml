@@ -199,6 +199,7 @@
           <e p="BaseTextMotion.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="CameraUtil.cs" t="Include" />
+          <e p="CameraUtil1.cs" t="Include" />
           <e p="CopyTextsMotion.cs" t="Include" />
           <e p="CreateCSV.cs" t="Include" />
           <e p="CreateDBFromCSV.cs" t="Include" />
@@ -246,6 +247,7 @@
             <e p="TestFont.shader" t="Include" />
           </e>
         </e>
+        <e p="Test.cs" t="Include" />
         <e p="uOSC" t="Include">
           <e p="Assets" t="Include">
             <e p="uOSC" t="Include">
