@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 23045058650544258}
   - component: {fileID: 102242745350379466}
   m_Layer: 0
-  m_Name: EffectSentence
+  m_Name: CopyTextRecource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

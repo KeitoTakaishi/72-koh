@@ -199,6 +199,7 @@
           <e p="BaseTextMotion.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="CameraUtil.cs" t="Include" />
+          <e p="CopyTextsMotion.cs" t="Include" />
           <e p="CreateCSV.cs" t="Include" />
           <e p="CreateDBFromCSV.cs" t="Include" />
           <e p="GenerateMesh.cs" t="Include" />
@@ -211,7 +212,7 @@
           <e p="SoundTest.cs" t="Include" />
           <e p="TestMeshOpe.cs" t="Include" />
           <e p="TextAnimStateMachine.cs" t="Include" />
-          <e p="TextTransform.cs" t="Include" />
+          <e p="VirwTextController.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
           <e p="ConvertFx.shader" t="Include" />

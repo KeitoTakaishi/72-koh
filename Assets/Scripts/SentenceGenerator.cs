@@ -49,21 +49,15 @@ public class SentenceGenerator : MonoBehaviour
         ModifyData(10);
         oscServer = OCS.GetComponent < OSCServer >();
         tm = this.GetComponent<TextMesh>();
-
-
-        
-
     }
 
     void Update()
     {
         var w = Screen.width;
         var h = Screen.height;
-        Vector3 anchor = new Vector3(w*0.5f, h*0.5f, 0.0f);
-      
+        Vector3 anchor = new Vector3(w*0.5f, h*0.5f, 0.0f);      
         Vector3 screen_point = anchor;
         screen_point.z = 10.0f;
-
         var mode = 0;
         //1text
         if (mode == 0){
@@ -107,6 +101,7 @@ public class SentenceGenerator : MonoBehaviour
         }
     }
 
+    //oscの信号を確認して変わったら表示するtextも変更する
     void Judge(ref int temp, int oscID)
     {
         if (temp != oscID)
@@ -115,6 +110,7 @@ public class SentenceGenerator : MonoBehaviour
             temp = oscID;
         }
     }
+    
     //offsetによって2/4の東風解凍からのスタートになっている
     void SelectData(int id)
     {
