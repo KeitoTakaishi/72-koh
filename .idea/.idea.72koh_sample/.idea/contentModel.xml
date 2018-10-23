@@ -202,7 +202,6 @@
           <e p="CopyTextsMotion.cs" t="Include" />
           <e p="CreateCSV.cs" t="Include" />
           <e p="CreateDBFromCSV.cs" t="Include" />
-          <e p="GenerateMesh.cs" t="Include" />
           <e p="OSCServer.cs" t="Include" />
           <e p="Place.cs" t="Include" />
           <e p="PostEffectApply.cs" t="Include" />
@@ -210,9 +209,10 @@
           <e p="RollText.cs" t="Include" />
           <e p="SentenceGenerator.cs" t="Include" />
           <e p="SoundTest.cs" t="Include" />
+          <e p="TempDataVisual.cs" t="Include" />
           <e p="TestMeshOpe.cs" t="Include" />
           <e p="TextAnimStateMachine.cs" t="Include" />
-          <e p="VirwTextController.cs" t="Include" />
+          <e p="ViewTextController.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
           <e p="ConvertFx.shader" t="Include" />
@@ -224,7 +224,9 @@
           <e p="SimplexNoise3D.cginc" t="Include" />
           <e p="SymmetryFx.shader" t="Include" />
           <e p="test.shader" t="Include" />
+          <e p="Transparent.shader" t="Include" />
           <e p="Vertex.shader" t="Include" />
+          <e p="WireFrame.shader" t="Include" />
         </e>
         <e p="SimpleJSON" t="Include">
           <e p="SimpleJSON.cs" t="Include" />

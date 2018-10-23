@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityOSC;
 using OSCServer = uOSC.OSCServer;
 
-public class VirwTextController : MonoBehaviour {
+public class ViewTextController : MonoBehaviour {
 	#region variable
 	public GameObject RollTextManager;
 	public GameObject SelectedText;
@@ -17,8 +17,20 @@ public class VirwTextController : MonoBehaviour {
 	private int _oscId = -1;
 	private int _tempId = -1;
 	private int frame = 0;
+	private bool _isPush = false;
 	#endregion
 	
+	
+	public int OscId 
+	{
+		get{ return _oscId; }
+	}
+
+	public bool IsPush
+	{
+		get { return _isPush; }
+	}
+
 	void Start () {
 		init();
 	}
@@ -26,9 +38,9 @@ public class VirwTextController : MonoBehaviour {
 	void Update ()
 	{
 		//前フレームと入力OscIdが違った場合
-		var isPush = judge(_oscServer.ID);
+		_isPush = judge(_oscServer.ID);
 		//押されていない
-		if (isPush){
+		if (_isPush){
 			_oscId = _oscServer.ID;
 			frame = 0;
 		}else{

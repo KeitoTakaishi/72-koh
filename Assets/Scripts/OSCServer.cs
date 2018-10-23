@@ -51,7 +51,6 @@ namespace uOSC
 			string address = message.address;
 			address = address.Replace(_prefix,"");
 			ID = int.Parse(address);
-			Debug.Log(ID);
 		}
 	}
 

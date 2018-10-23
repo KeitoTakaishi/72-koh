@@ -64,7 +64,7 @@ namespace MainScene
         //第2引数で指定したファイルをロードしてstringListへ変換
         public void LoadFile(ref List<string> data, string FileName)
         {
-            var csvFile = Resources.Load("csv/" + FileName) as TextAsset;
+            var csvFile = Resources.Load("CSV/" + FileName) as TextAsset;
             var reader = new StringReader(csvFile.text);
             while (reader.Peek() > -1)
             {
