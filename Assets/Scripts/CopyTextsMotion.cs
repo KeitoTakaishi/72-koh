@@ -3,6 +3,7 @@
  2.
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,10 +19,16 @@ public class CopyTextsMotion : MonoBehaviour {
     private bool isInstance = false;
     [SerializeField]private GameObject pref;
     #endregion
+
     
-    
-	void Start () {
-	    GenerateText();
+    //active 状態になったらメモリを確保
+    private void OnEnable()
+    {
+        GenerateText();
+    }
+
+    void Start () {
+	    
     }
 
    void Update ()
@@ -71,5 +78,14 @@ public class CopyTextsMotion : MonoBehaviour {
             var speed = (i - 1.5f) * 0.2f;
             _copyTexts[i].transform.position += new Vector3(speed, -speed, 0.0f);
         }
-    }   
+    }
+
+    private void OnDisable()
+    {
+        for (int i = 0; i < _copyTexts.Length; i++)
+        {
+            Destroy(_copyTexts[i]);
+            Destroy(_copyTextMesh[i]);
+        }
+    }
 }

@@ -33,7 +33,7 @@ public class CameraUtil1 : MonoBehaviour
 
     void Update()
     {
-        if (Time.frameCount % 30 == 0)
+        if (Time.frameCount % 300.0 == 0)
         {
             bufferpos = this.transform.position;
             nextPos = Random.insideUnitSphere * rad;
@@ -48,8 +48,9 @@ public class CameraUtil1 : MonoBehaviour
         }else if(im == InterpolationMode.Slerp){
             transform.position = Vector3.Slerp(bufferpos, nextPos, t);
         }
+        
         transform.LookAt(target.transform);
-        t += Time.deltaTime;
+        t += 1 / 300.0f;
         if (t > 1.0f){
             t = 1.0f;
         }

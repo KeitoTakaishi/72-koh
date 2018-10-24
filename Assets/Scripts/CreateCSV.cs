@@ -2,23 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace MainScene
 {
+    [DefaultExecutionOrder(-10)]
     public class CreateCSV : MonoBehaviour
     {
-        //csv data
-        private List<string> data = new List<string>();
+        //csv _data
+        private List<string> _data = new List<string>();
+        private List<string> _dataVisual = new List<string>();
 
         void Start()
         {
             //毎回処理をすると重いので，形成後のファイル存在してない場合のみ生成
             if (!(System.IO.File.Exists(Application.dataPath + "/Resources/CSV/ModifyData.csv")))
             {
-                ReadCSV(ref data, "temp");//date,temp
-                WriteCSV(ref data);//year;temp
+                ReadCSV(ref _data, "temp");//date,temp
+                WriteCSV(ref _data);//year;temp
             }else{
-                Debug.Log("exist");
+                //Debug.Log("exist");
+            }
+            
+            
+            //DataVisualise用
+            if (!(System.IO.File.Exists(Application.dataPath + "/Resources/CSV/DataVisualData.csv")))
+            {
+                ReadCSV(ref _dataVisual, "temp");//date,temp
+                WriteDataVisualCSV();//year;temp
+            }else{
+                //Debug.Log("exist");
             }
         }
         
@@ -61,10 +74,38 @@ namespace MainScene
             sw.Close();
         }
         
+        //
+        private void WriteDataVisualCSV()
+        {
+            StreamWriter sw;
+            FileInfo fi;
+            string str = null;
+            
+            
+            for (int i = 0; i <  _dataVisual.Count; i+=2)
+            {
+                //date + temperature
+                _dataVisual[i] = _dataVisual[i]; 
+                str +=  _dataVisual[i]+"\n";
+                //str +=  _dataVisual[i] + ":" +  _dataVisual[i + 1] + "\n";
+            }
+            fi = new FileInfo(Application.dataPath + "/Resources/CSV/DataVisualData.csv");
+            sw = fi.AppendText();
+            sw.WriteLine(str);
+            sw.Flush();
+            sw.Close();
+        }
+        
         //第2引数で指定したファイルをロードしてstringListへ変換
         public void LoadFile(ref List<string> data, string FileName)
         {
-            var csvFile = Resources.Load("CSV/" + FileName) as TextAsset;
+            var csvFile = Resources.Load("csv/" + FileName) as TextAsset;
+            if (csvFile == null)
+            {
+                Debug.Log("null");
+                return;
+            }
+            
             var reader = new StringReader(csvFile.text);
             while (reader.Peek() > -1)
             {

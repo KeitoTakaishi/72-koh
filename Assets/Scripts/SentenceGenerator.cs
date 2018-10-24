@@ -20,6 +20,8 @@ public class SentenceGenerator : MonoBehaviour
 {
     #region Variable
 
+    public GameObject copyTexts;
+
     private string m_jsonFilePath;
     private JSONNode m_jsonData;
     private int num = 72;
@@ -38,7 +40,11 @@ public class SentenceGenerator : MonoBehaviour
     {
         get { return _senData; }
     }
-    
+
+    private void OnEnable()
+    {
+        StartCoroutine("Instant");
+    }
 
     void Start()
     {
@@ -49,6 +55,8 @@ public class SentenceGenerator : MonoBehaviour
         ModifyData(10);
         oscServer = OCS.GetComponent < OSCServer >();
         tm = this.GetComponent<TextMesh>();
+
+        
     }
 
     void Update()
@@ -131,6 +139,16 @@ public class SentenceGenerator : MonoBehaviour
                 _senData[id - 1] = _senData[id - 1].Insert(senLen * (i + 1) + i, "\n");
             }
         }
+    }
+
+    //copyTextの生成
+    IEnumerator Instant()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("instant");
+        copyTexts.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        copyTexts.SetActive(false);
     }
 
 }

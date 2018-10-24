@@ -63,8 +63,8 @@ namespace MainScene
             _CycleData = new int[num];
             InitCycleData(_CycleData);
             _ModifyData = new List<string>();
-            _CreateCSV = CSV.GetComponent<CreateCSV>();
-            _CreateCSV.LoadFile(ref _ModifyData, "ModifyData");
+            CSV = CSV.GetComponent<CSV>();
+            CSV.LoadFile(ref _ModifyData, "ModifyData");
             _tempData = new List<float>[num];
             for (int i = 0; i < num; i++){
                 _tempData[i] = new List<float>();
