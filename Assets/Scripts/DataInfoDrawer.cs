@@ -31,6 +31,7 @@ public class DataInfoDrawer : MonoBehaviour
     private int _id;
     private DateInfo _dateInfo;
     private string[] SeasonName;
+    private int _randIndex;
     #endregion
 
     void Start()
@@ -44,14 +45,18 @@ public class DataInfoDrawer : MonoBehaviour
              _orderedSysleDates[i] = _CDBfromCSV.CycleData[(i + 7) % 72];
         }
         
+        
     }
 
     void Update()
     {
         _id = _viewTextController.OscId-1;
         if (_id < 0 || _id == null) _id = 0;
-        
-        var _randIndex = UnityEngine.Random.Range(0, _CDBfromCSV.OrderdTempData[_id].Count);
+
+        if (Time.frameCount % 10 == 0){
+            _randIndex = UnityEngine.Random.Range(0, _CDBfromCSV.OrderdTempData[_id].Count);
+        }
+
         _dateInfo.seasonName = SeasonName[_id];
         _dateInfo.date = _CDBfromCSV.OrderdDateData[_id][_randIndex];
         _dateInfo.temp = _CDBfromCSV.OrderdTempData[_id][_randIndex];
@@ -69,6 +74,8 @@ public class DataInfoDrawer : MonoBehaviour
         _viewTextController = viewTextController.GetComponent < ViewTextController >();
         _CDBfromCSV = createDataBase.GetComponent < CreateDBFromCSV >();
         _dateInfo = new DateInfo();
+        _randIndex = UnityEngine.Random.Range(0, _CDBfromCSV.OrderdTempData[_id].Count);
+
     }
 
     void SetSeasonName()
@@ -153,10 +160,11 @@ public class DataInfoDrawer : MonoBehaviour
     void GenerateSentence(string seasonName,string date,float temp,float lowest, float highest, float avg)
     {
         string info = "72候: "+ seasonName +"\n"+
+                      "Year:1998 ~ 2018\n" + 
                       "Date:"+ date + "\n" +
-                      "Temp data: " + temp + "\n"+
-                      "Lowest:" + lowest.ToString() +"\n" +
-                      "Highest:" + highest.ToString() + "\n" +
+                      "Temperature Data: " + temp +"℃"+ "\n"+
+                      "Lowest Temp:" + lowest.ToString()+"℃"+"\n" +
+                      "Highest Temp:" + highest.ToString()+"℃"+ "\n" +
                       "Agerage:" + avg.ToString() +"\n";
         var _text = this.GetComponent < Text >();
         _text.text = info;

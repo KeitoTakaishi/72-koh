@@ -27,27 +27,36 @@ namespace MainScene
         private List < float >[] _tempData;
         private Mesh _mesh;
         private MeshFilter _mf;
+        private GameObject[] _histograms;
 
         void Start()
         {
             initDataSet();
             GenerateHistogram(_CDBfromCSV.OrderdTempData[0]);
 
-
-//            initMesh();
-//            _mesh = CreateMesh(_mesh, _CDBfromCSV.OrderdTempData[0]);
-//            _mf.sharedMesh = _mesh;
-//            _mf.mesh.SetIndices(_mf.mesh.GetIndices(0), MeshTopology.LineStrip, 0);
+            /*
+            initMesh();
+            _mesh = CreateMesh(_mesh, _CDBfromCSV.OrderdTempData[0]);
+            _mf.sharedMesh = _mesh;
+           _mf.mesh.SetIndices(_mf.mesh.GetIndices(0), MeshTopology.LineStrip, 0);
+           */
         }
 
         void Update()
         {
             this.transform.Rotate(new Vector3(0.0f, Time.deltaTime*5.0f, 0.0f));
+            
+            
             if (_viewTextController.OscId > 0 && _viewTextController.IsPush)
             {
                 var id = _viewTextController.OscId-1;
 //                _mesh = CreateMesh(_mesh, _CDBfromCSV.OrderdTempData[id]);
 //                SetMeshFilter(_mf, _mesh);
+
+                if (_histograms != null)
+                {
+                    DestroyHistgram();
+                }
                 GenerateHistogram(_CDBfromCSV.OrderdTempData[id]);
 //                
             }
@@ -188,7 +197,7 @@ namespace MainScene
         private void GenerateHistogram(List < float > data)
         {
             var _dataNum = data.Count;
-            var _histograms = new GameObject[_dataNum];
+            _histograms = new GameObject[_dataNum];
             var _radius = 45.0f;
             var _stepDeg = 360.0f / _dataNum;
             
@@ -205,6 +214,14 @@ namespace MainScene
                 _histograms[i].transform.localScale = new Vector3(1.0f, data[i], 1.0f);
                 _histograms[i].transform.SetParent(this.gameObject.transform);
                 
+            }
+        }
+
+        private void DestroyHistgram()
+        {
+            for (int i = 0; i < _histograms.Length; i++)
+            {
+                Destroy(_histograms[i]);
             }
         }
 

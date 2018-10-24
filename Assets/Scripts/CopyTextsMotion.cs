@@ -18,30 +18,35 @@ public class CopyTextsMotion : MonoBehaviour {
     private int num = 4;
     private bool isInstance = false;
     [SerializeField]private GameObject pref;
+    private TextMesh _baseTextMesh;
     #endregion
 
     
     //active 状態になったらメモリを確保
     private void OnEnable()
     {
+        _baseTextMesh = baseText.GetComponent < TextMesh >();
         GenerateText();
+        CopyText();   
     }
 
     void Start () {
-	    
     }
 
    void Update ()
-    {
- 
-        if (Input.GetMouseButton(0))
-        {
-            CopyText();
-        }
-        MoveText();
-	}
+   {
+       var isAnim = baseText.GetComponent < BaseTextMotion >().IsAnimetionComp;
+       if (!isAnim)
+       {
+           CopyText();
+       }
+       else
+       {
+           MoveText();
 
-    
+       }
+
+	}
 
     //effect用のテキストメッシュオブジェクトの生成
     void GenerateText()
@@ -66,7 +71,8 @@ public class CopyTextsMotion : MonoBehaviour {
             s.transform.position = baseText.transform.position;
             Quaternion r = baseText.transform.rotation;
             s.transform.rotation = r;
-            s.text = baseText.GetComponent < TextMesh >().text;
+            s.text = _baseTextMesh.text;
+            s.transform.SetParent(baseText.transform);
         }
     }
     

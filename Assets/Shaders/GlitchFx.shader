@@ -1,4 +1,4 @@
-﻿Shader "GlitchFx"
+﻿Shader "Custom/GlitchFx"
 {
     Properties{
         _MainTex("Texture", 2D) = "white" {}
@@ -17,7 +17,11 @@
         ZTest Always
         ZWrite Off
         
-        Tags { "RenderType" = "Opaque"}
+        Tags { 
+        "IgnoreProjector"="True"
+        //"RenderType"="Transparent"
+        "PreviewType"="Plane"
+        }
         
         Pass
         {
@@ -30,12 +34,12 @@
             struct appdata
             {
                 float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
+                float2 texcoord : TEXCOORD0;
             };
             
             struct v2f
             {
-                float2 uv : TEXCOORD0;
+                float2 texcoord : TEXCOORD0;
                 float4 vertex : SV_POSITION;
             };
             
@@ -46,7 +50,7 @@
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
                 return o;
             }
             
@@ -61,7 +65,8 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 float noise = simplexNoise(float3(i.vertex.x, i.vertex.y, _Time.y));
-                float2 uv = float2(i.uv);
+                float2 uv = float2(i.texcoord);
+                
                 
                 float NoiseBlock = 5;
                 float2 block = floor(uv * _BlockNum) / _BlockNum;
@@ -69,8 +74,8 @@
                 noise = simplexNoise(float3(block.x*_BlockSizeX, block.y*_BlockSizeY, _Time.y*_TimeMag));
                 
                 
-                
-                fixed4 col = tex2D(_MainTex, i.uv);
+               
+                fixed4 col = tex2D(_MainTex, uv);
                 float2 d = float2(0.01*_DiffX, 0.01*_DiffY);
                 
                 if(noise > _Threshold){
@@ -80,7 +85,7 @@
                 }
                 
                
-           
+                
                 return col;
             }
             ENDCG

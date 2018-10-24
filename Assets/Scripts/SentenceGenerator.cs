@@ -34,6 +34,7 @@ public class SentenceGenerator : MonoBehaviour
     public Camera cam;
     private bool isChanging = true;
     
+    
     #endregion
 
     public string[] SenData
@@ -41,10 +42,7 @@ public class SentenceGenerator : MonoBehaviour
         get { return _senData; }
     }
 
-    private void OnEnable()
-    {
-        StartCoroutine("Instant");
-    }
+   
 
     void Start()
     {
@@ -55,8 +53,7 @@ public class SentenceGenerator : MonoBehaviour
         ModifyData(10);
         oscServer = OCS.GetComponent < OSCServer >();
         tm = this.GetComponent<TextMesh>();
-
-        
+        //Judge(ref tempId, oscServer.ID);
     }
 
     void Update()
@@ -123,9 +120,11 @@ public class SentenceGenerator : MonoBehaviour
     void SelectData(int id)
     {
         tm.text = _senData[id - 1];
+        //Debug.Log("select");
     }
     
     //modify data->改行の挿入
+    //senLenは一行の文字の長さ
     void ModifyData(int senLen)
     {
         for (int id = 1; id <= 72; id++)
@@ -141,13 +140,11 @@ public class SentenceGenerator : MonoBehaviour
         }
     }
 
-    //copyTextの生成
+    //copyTextを少し待ってから生成
     IEnumerator Instant()
     {
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("instant");
         copyTexts.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3.0f);
         copyTexts.SetActive(false);
     }
 
