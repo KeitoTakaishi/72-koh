@@ -48,8 +48,9 @@ namespace MainScene
             this.transform.Rotate(new Vector3(0.0f, Time.deltaTime*5.0f, 0.0f));
             
             
-            if (_viewTextController.OscId > 0 && _viewTextController.IsPush)
-            {
+            //if (_viewTextController.OscId > 0 && _viewTextController.IsPush)
+            //{
+            if(_viewTextController.OscId > 0){
                 var id = _viewTextController.OscId-1;
 //                _mesh = CreateMesh(_mesh, _CDBfromCSV.OrderdTempData[id]);
 //                SetMeshFilter(_mf, _mesh);

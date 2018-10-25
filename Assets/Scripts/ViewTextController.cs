@@ -6,7 +6,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.WSA.Input;
 using UnityOSC;
 using OSCServer = uOSC.OSCServer;
 using UnityEngine.UI;
