@@ -15,6 +15,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
 
+[DefaultExecutionOrder(5)]
 public class RollText : MonoBehaviour
 {
     #region variables

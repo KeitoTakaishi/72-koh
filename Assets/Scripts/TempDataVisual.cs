@@ -12,6 +12,7 @@ using UnityEngine;
 namespace MainScene
 {
     [RequireComponent(typeof(MeshFilter))]
+
     public class TempDataVisual : MonoBehaviour
     {
         public GameObject CSV;

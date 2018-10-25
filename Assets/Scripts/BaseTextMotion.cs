@@ -36,32 +36,43 @@ public class BaseTextMotion : MonoBehaviour {
 
 	private IEnumerator Motion()
 	{
+		
+		//待ち
+//		int frameNum = 60;
+//		for (int i = 0; i < frameNum; i++){
+//			yield return null;
+//		}
 		int frameNum = 60;
+
+		//回転1
+		frameNum = 60;
 		for (int i = 0; i < frameNum; i++){
 			var dy = 30.0f / frameNum;
 			this.transform.Rotate(new Vector3(0.0f, -dy, 0.0f));
 			yield return null;
 		}
 
-		frameNum = 10;
+		//回転2
+		frameNum = 20;
 		for (int i = 0; i < frameNum; i++){
 			var dx = 25.0f / frameNum;
 			this.transform.Rotate(new Vector3(dx, 0.0f, 0.0f));
 			yield return null;
 		}
+		
 		isAnimetionComp = true;
+		yield return null;
 		
-		yield return new WaitForSeconds(1.0f);
+		//`回転2	
 		frameNum = 20;
-		
 		for (int i = 0; i < frameNum; i++){
 			var dx = -25.0f / frameNum;
 			this.transform.Rotate(new Vector3(dx, 0.0f, 0.0f));
 			yield return null;
 		}
 		
+		//`回転1	
 		frameNum = 60;
-		
 		for (int i = 0; i < frameNum; i++){
 			var dy = -30.0f / frameNum;
 			this.transform.Rotate(new Vector3(0.0f, -dy, 0.0f));

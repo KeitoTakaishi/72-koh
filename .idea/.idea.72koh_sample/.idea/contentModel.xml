@@ -210,6 +210,7 @@
           <e p="TempDataVisual.cs" t="Include" />
           <e p="TestMeshOpe.cs" t="Include" />
           <e p="TextAnimStateMachine.cs" t="Include" />
+          <e p="TimeManager.cs" t="Include" />
           <e p="ViewTextController.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
@@ -234,6 +235,7 @@
           <e p="SimpleJSONBinary.cs" t="Include" />
           <e p="SimpleJSONUnity.cs" t="Include" />
         </e>
+        <e p="Sprite-Grayscale.shader" t="Include" />
         <e p="Test" t="Include">
           <e p="Scripts" t="Include">
             <e p="AsyncTest.cs" t="Include" />

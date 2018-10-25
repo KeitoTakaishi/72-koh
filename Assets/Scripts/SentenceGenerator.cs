@@ -15,7 +15,7 @@ using System.Xml;
 using uOSC;
 using UnityEngine.Rendering;
 
-[DefaultExecutionOrder(-1)]
+[DefaultExecutionOrder(0)]
 public class SentenceGenerator : MonoBehaviour
 {
     #region Variable
@@ -50,10 +50,10 @@ public class SentenceGenerator : MonoBehaviour
         _senData = new String[num];
         InitStr(ref _senData);    
         LoadData(ref _senData);
-        ModifyData(10);
+        var _senLen = 10;
+        ModifyData(_senLen);
         oscServer = OCS.GetComponent < OSCServer >();
         tm = this.GetComponent<TextMesh>();
-        //Judge(ref tempId, oscServer.ID);
     }
 
     void Update()
@@ -63,12 +63,16 @@ public class SentenceGenerator : MonoBehaviour
         Vector3 anchor = new Vector3(w*0.5f, h*0.5f, 0.0f);      
         Vector3 screen_point = anchor;
         screen_point.z = 10.0f;
-        var mode = 0;
-        //1text
-        if (mode == 0){
-            Judge(ref tempId, oscServer.ID);
-            this.transform.position = Camera.main.ScreenToWorldPoint(screen_point);
-        }//allTexts -> roll
+        
+        Debug.Log(oscServer.ID);
+        if (oscServer.ID > 0)
+        {
+            Debug.Log("selectData");
+            SelectData(oscServer.ID);
+        }
+
+        this.transform.position = Camera.main.ScreenToWorldPoint(screen_point);
+        
     }
 
 
@@ -111,6 +115,7 @@ public class SentenceGenerator : MonoBehaviour
     {
         if (temp != oscID)
         {
+            Debug.Log("============="+oscServer.ID);
             SelectData(oscID);
             temp = oscID;
         }
@@ -119,7 +124,7 @@ public class SentenceGenerator : MonoBehaviour
     //offsetによって2/4の東風解凍からのスタートになっている
     void SelectData(int id)
     {
-        tm.text = _senData[id - 1];
+        tm.text = _senData[id-1];
         //Debug.Log("select");
     }
     

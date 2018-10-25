@@ -44,6 +44,7 @@ public class uOscServer : MonoBehaviour
         {
             var message = parser_.Dequeue();
             onDataReceived.Invoke(message);
+            
         }
     }
 

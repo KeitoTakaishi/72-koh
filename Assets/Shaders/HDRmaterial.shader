@@ -59,7 +59,7 @@
     fixed2 uv = i.texcoord;
     //uv.x += 0.1*sin(_Time.z/ 4.0);
     //uv.y += 0.1*sin(_Time.z/4.0);
-    col = tex2D(_MainTex, uv);
+    col = tex2D(_MainTex, uv) * _Color;
     
     return col;
   }

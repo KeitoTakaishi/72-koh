@@ -165,7 +165,7 @@ public class DataInfoDrawer : MonoBehaviour
                       "Temperature Data: " + temp +"℃"+ "\n"+
                       "Lowest Temp:" + lowest.ToString()+"℃"+"\n" +
                       "Highest Temp:" + highest.ToString()+"℃"+ "\n" +
-                      "Agerage:" + avg.ToString() +"\n";
+                      "Agerage:" + avg.ToString()+"℃"+"\n";
         var _text = this.GetComponent < Text >();
         _text.text = info;
     }
