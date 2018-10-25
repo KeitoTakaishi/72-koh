@@ -26,7 +26,7 @@ public class ViewTextController : MonoBehaviour {
 	private bool _isPush = false;
 
 	private Slider _slider;
-	private bool _isAccepted = true;
+	public bool _isAccepted = true;
 	private int _curFrame;
 	private Text _accepetText;
 	private Image _accepetTextImage;

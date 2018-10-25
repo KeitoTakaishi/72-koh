@@ -50,14 +50,18 @@ public class DataInfoDrawer : MonoBehaviour
 
     void Update()
     {
-        _id = _viewTextController.OscId-1;
+        if (!_viewTextController._isAccepted)
+        {
+            _id = _viewTextController.OscId;
+        }
+
         if (_id < 0 || _id == null) _id = 0;
 
         if (Time.frameCount % 10 == 0){
             _randIndex = UnityEngine.Random.Range(0, _CDBfromCSV.OrderdTempData[_id].Count);
         }
 
-        _dateInfo.seasonName = SeasonName[_id];
+        _dateInfo.seasonName = SeasonName[_id-1];
         _dateInfo.date = _CDBfromCSV.OrderdDateData[_id][_randIndex];
         _dateInfo.temp = _CDBfromCSV.OrderdTempData[_id][_randIndex];
         _dateInfo.highestTemp = _CDBfromCSV.OrderdTempData[_id].Max();
