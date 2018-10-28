@@ -57,7 +57,7 @@ public class ViewTextController : MonoBehaviour {
 			_accepetText.text = "Select Button";
 			GameObject.Find("ImageText").GetComponent < Text >().text = "Done" + "\n" + "100%";
 			GameObject.Find("ImageText").GetComponent < Text >().color = new Color(1.0f, 1.0f, 1.0f, 0.7f);
-			_accepetTextImage.color = new Color(.0f, .7f, .7f, Mathf.Sin(frame*5.0f * Mathf.Deg2Rad));
+			_accepetTextImage.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Sin(frame*5.0f * Mathf.Deg2Rad));
 
 
 			
@@ -70,7 +70,7 @@ public class ViewTextController : MonoBehaviour {
 				"Calculating" + "\n" + ((1.0f / AppearTime)* frame * 100.0f).ToString() + "%";
 			
 			GameObject.Find("ImageText").GetComponent < Text >().color = new Color(1.0f, 1.0f, 1.0f, Mathf.Sin(frame*5.0f * Mathf.Deg2Rad));
-			_accepetTextImage.color = new Color(.0f, .7f, .7f, Mathf.Sin(frame*5.0f * Mathf.Deg2Rad));
+			_accepetTextImage.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Sin(frame*5.0f * Mathf.Deg2Rad));
 		}
 
 		

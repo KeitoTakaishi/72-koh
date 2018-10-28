@@ -76,4 +76,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GridColor: {r: 1, g: 1, b: 1, a: 0}
-    - _LineColor: {r: 0.1552862, g: 2.1185474, b: 1.6970563, a: 0.42745098}
+    - _LineColor: {r: 2.6950107, g: 1.2468467, b: 0.063561566, a: 0.42745098}
