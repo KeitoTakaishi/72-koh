@@ -21,18 +21,16 @@ public class SentenceGenerator : MonoBehaviour
     #region Variable
 
     public GameObject copyTexts;
-
     private string m_jsonFilePath;
     private JSONNode m_jsonData;
     private int num = 72;
     private string[] _senData;
     public GameObject OCS;
     private OSCServer oscServer;
-    private int tempId=0;
     TextMesh tm;
     Vector2 screenSize;
     public Camera cam;
-    private bool isChanging = true;
+    public GameObject _viewManager;
     
     
     #endregion
@@ -54,23 +52,48 @@ public class SentenceGenerator : MonoBehaviour
         ModifyData(_senLen);
         oscServer = OCS.GetComponent < OSCServer >();
         tm = this.GetComponent<TextMesh>();
+
+        //Debug.Log("Senetence Gene Start()" + Time.frameCount);
     }
 
+    public int bufferID = 1;
+    private bool flag = true;
+    private int frame = 0;
     void Update()
     {
+
+        //Debug.Log("Senetence Gene Update():" + Time.frameCount);
+
         var w = Screen.width;
         var h = Screen.height;
         Vector3 anchor = new Vector3(w*0.5f, h*0.5f, 0.0f);      
         Vector3 screen_point = anchor;
         screen_point.z = 10.0f;
-        
-        Debug.Log(oscServer.ID);
-        if (oscServer.ID > 0)
-        {
-            Debug.Log("selectData");
-            SelectData(oscServer.ID);
-        }
 
+
+        //Debug.Log(_viewManager.GetComponent<ViewTextController>().BufferID);
+        if (_viewManager.GetComponent<ViewTextController>().BufferID > 0)
+        {
+            if (flag)
+            {
+                bufferID = _viewManager.GetComponent<ViewTextController>().BufferID;
+                flag = false;
+
+            }
+        }
+        if(!flag){
+            //Debug.Log("false-----------");
+            ++frame;
+            if (frame == 550)
+            {
+                flag = true;
+                frame = 0;
+            }
+         }
+
+        if (bufferID < 0 || bufferID > 72) Debug.Log("error---------------------");
+        SelectData(bufferID - 1);
+        
         this.transform.position = Camera.main.ScreenToWorldPoint(screen_point);
         
     }
@@ -111,21 +134,20 @@ public class SentenceGenerator : MonoBehaviour
     }
 
     //oscの信号を確認して変わったら表示するtextも変更する
-    void Judge(ref int temp, int oscID)
-    {
-        if (temp != oscID)
-        {
-            Debug.Log("============="+oscServer.ID);
-            SelectData(oscID);
-            temp = oscID;
-        }
-    }
+    //void Judge(ref int temp, int oscID)
+    //{
+    //    if (temp != oscID)
+    //    {
+    //        SelectData(oscID);
+    //        temp = oscID;
+    //    }
+    //}
     
     //offsetによって2/4の東風解凍からのスタートになっている
     void SelectData(int id)
     {
-        tm.text = _senData[id-1];
-        //Debug.Log("select");
+        //Debug.Log(id + "---------------");
+        tm.text = _senData[id];
     }
     
     //modify data->改行の挿入
@@ -136,8 +158,6 @@ public class SentenceGenerator : MonoBehaviour
         {
             var len = _senData[id - 1].Length;
             var paraNum = len / senLen;
-            string temp = null;
-
             for (int i = 0; i < paraNum; i++)
             {
                 _senData[id - 1] = _senData[id - 1].Insert(senLen * (i + 1) + i, "\n");
@@ -146,11 +166,11 @@ public class SentenceGenerator : MonoBehaviour
     }
 
     //copyTextを少し待ってから生成
-    IEnumerator Instant()
-    {
-        copyTexts.SetActive(true);
-        yield return new WaitForSeconds(3.0f);
-        copyTexts.SetActive(false);
-    }
+    //IEnumerator Instant()
+    //{
+    //    copyTexts.SetActive(true);
+    //    yield return new WaitForSeconds(30.0f);
+    //    copyTexts.SetActive(false);
+    //}
 
 }

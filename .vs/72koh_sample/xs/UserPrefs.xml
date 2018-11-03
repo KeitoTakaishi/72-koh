@@ -1,10 +1,13 @@
 ﻿<Properties StartupConfiguration="{2C9D19A7-AD76-3885-39BF-EED01EF3FA11}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SentenceGenerator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DataInfoDrawer.cs">
     <Files>
-      <File FileName="Assets/Scripts/TextTransform.cs" Line="45" Column="17" />
-      <File FileName="Assets/Scripts/SentenceGenerator.cs" Line="24" Column="56" />
-      <File FileName="Assets/Json/ExpressSentence.json" Line="3" Column="1" />
+      <File FileName="Assets/Scripts/ViewTextController.cs" Line="103" Column="23" />
+      <File FileName="Assets/Scripts/SentenceGenerator.cs" Line="83" Column="10" />
+      <File FileName="Assets/Scripts/DataInfoDrawer.cs" Line="66" Column="26" />
+      <File FileName="Assets/Scripts/CopyTextsMotion.cs" Line="7" Column="50" NotebookId="1" />
+      <File FileName="Assets/Scripts/BaseTextMotion.cs" Line="80" Column="9" NotebookId="1" />
+      <File FileName="Assets/Scripts/OSCServer.cs" Line="11" Column="24" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

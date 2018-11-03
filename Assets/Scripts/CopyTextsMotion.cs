@@ -1,6 +1,10 @@
 ﻿/*
  1.72textの生成
  2.
+
+note:
+- copyがfalseになる時間はViewTextControllerないのIEnumerator Instantによって決定する
+- SentenceGene, ViewController,Datainfoのフレーム数を変える
  */
 
 using System;
@@ -26,7 +30,10 @@ public class CopyTextsMotion : MonoBehaviour {
     private void OnEnable()
     {
         _baseTextMesh = baseText.GetComponent < TextMesh >();
-        GenerateText();
+        if (this.gameObject.name == "CopyTexts")
+        {
+            GenerateText();
+        }
         CopyText();   
     }
 
@@ -36,14 +43,13 @@ public class CopyTextsMotion : MonoBehaviour {
    void Update ()
    {
        var isAnim = baseText.GetComponent < BaseTextMotion >().IsAnimetionComp;
-       if (!isAnim)
-       {
+       if (!isAnim){
            CopyText();
-       }
-       else
-       {
-           MoveText();
-
+       }else if(isAnim){
+            Debug.Log("CopyTextSuc" + isAnim);
+            //GenerateText();
+            //CopyText();
+            MoveText();
        }
 
 	}
@@ -75,14 +81,16 @@ public class CopyTextsMotion : MonoBehaviour {
             s.transform.SetParent(baseText.transform);
         }
     }
-    
 
+    float alpha = 0.0f; 
     void MoveText()
     {
         for (int i = 0; i < _copyTexts.Length; i++)
         {
             var speed = (i - 1.5f) * 0.2f;
             _copyTexts[i].transform.position += new Vector3(speed, -speed, 0.0f);
+            _copyTexts[i].GetComponent<MeshRenderer>().material.color = new Color(1.0f,0.0f,0.0f, alpha);
+            alpha -= 0.6f;
         }
     }
 

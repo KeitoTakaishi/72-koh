@@ -62,7 +62,7 @@ Shader "Custom/TestFont" {
     //uv.y += 0.1*sin(_Time.z/4.0);
     col = tex2D(_MainTex, uv);
     col.rgb = fixed3(1.0, 1.0, 1.0) - col.rgb;
-    
+    //col.a = 255.0;
     return col;
   }
   ENDCG

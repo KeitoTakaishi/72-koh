@@ -10,8 +10,9 @@ namespace uOSC
 	[DefaultExecutionOrder(-10)]
 	public class OSCServer : MonoBehaviour
 	{
-		private string _prefix = "/1/push";
-		private int _id;
+        private string _prefix = "/1/push";
+        //private string _prefix = "/1/push/";
+        private int _id;
 		
 		public int ID{
 			get { return _id; }
@@ -28,13 +29,6 @@ namespace uOSC
 			var server = GetComponent<uOscServer>();
 			server.onDataReceived.AddListener(OnDataReceived);
 		}
-
-		private void FixedUpdate()
-		{
-			if (Time.frameCount % 3 == 0) ID = 0;
-			//Debug.Log(Time.frameCount + "Frame:" + "Fixed Update :" + ID);
-		}
-
 		void Update()
 		{	
 			
@@ -56,8 +50,7 @@ namespace uOSC
 			
 			string address = message.address;
 			address = address.Replace(_prefix,"");
-			ID = int.Parse(address);
-			//Debug.Log(Time.frameCount + "Frame:" + "Event Update :" + ID);
+            ID = int.Parse(address);
 		}
 	}
 }

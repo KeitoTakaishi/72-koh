@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityOSC;
 using System.Linq;
+using uOSC;
 
 
 struct DateInfo
@@ -22,6 +22,9 @@ public class DataInfoDrawer : MonoBehaviour
     #region variables
     public GameObject createDataBase;
     public GameObject viewTextController;
+    public GameObject sentenceGene;
+    public GameObject osc;
+
 
     private ViewTextController _viewTextController;
     private CreateDBFromCSV _CDBfromCSV;
@@ -32,6 +35,7 @@ public class DataInfoDrawer : MonoBehaviour
     private DateInfo _dateInfo;
     private string[] SeasonName;
     private int _randIndex;
+
     #endregion
 
     void Start()
@@ -47,21 +51,33 @@ public class DataInfoDrawer : MonoBehaviour
         
         
     }
-
+    public int bufferID = 0;
+    private bool flag = true;
+    private int frame = 0;
     void Update()
     {
-        if (!_viewTextController._isAccepted)
-        {
-            _id = _viewTextController.OscId;
+        if(flag){
+            if (osc.GetComponent<OSCServer>().ID > 0)
+            {
+                //if(viewTextController.GetComponent<ViewTextController>().BufferID > 0){
+                _id = viewTextController.GetComponent<ViewTextController>().BufferID - 1;
+                flag = false;
+            }
+        }else{
+            ++frame;
+            if (frame >= 550){
+                flag = true;
+                frame = 0;
+            }
         }
 
-        if (_id < 0 || _id == null) _id = 0;
 
         if (Time.frameCount % 10 == 0){
             _randIndex = UnityEngine.Random.Range(0, _CDBfromCSV.OrderdTempData[_id].Count);
         }
 
-        _dateInfo.seasonName = SeasonName[_id-1];
+
+        _dateInfo.seasonName = SeasonName[_id];
         _dateInfo.date = _CDBfromCSV.OrderdDateData[_id][_randIndex];
         _dateInfo.temp = _CDBfromCSV.OrderdTempData[_id][_randIndex];
         _dateInfo.highestTemp = _CDBfromCSV.OrderdTempData[_id].Max();
@@ -79,6 +95,7 @@ public class DataInfoDrawer : MonoBehaviour
         _CDBfromCSV = createDataBase.GetComponent < CreateDBFromCSV >();
         _dateInfo = new DateInfo();
         _randIndex = UnityEngine.Random.Range(0, _CDBfromCSV.OrderdTempData[_id].Count);
+        _id = 1;
 
     }
 

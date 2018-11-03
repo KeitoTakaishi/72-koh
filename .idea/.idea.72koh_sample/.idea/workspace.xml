@@ -5,13 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/Assets/Scripts/TempDataVisual.cs" line="40" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0688ad8b-6f3a-4de5-8642-9ea471c660b7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.72koh_sample/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.72koh_sample/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.72koh_sample/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.72koh_sample/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Material/Glitch.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Material/Glitch.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-    </list>
+    <list default="true" id="0688ad8b-6f3a-4de5-8642-9ea471c660b7" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +42,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Follow.cs" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Follow.cs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Assets/Camera/Follow.cs">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="380">
@@ -67,6 +61,15 @@
                     <marker date="1540719109000" expanded="true" signature="1046:1173" ph="{...}" />
                     <marker date="1540719109000" expanded="true" signature="1210:1363" ph="{...}" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Follow.cs" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/../CameraUtil/Assets/Camera/Follow.cs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="270">
+                  <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
                 </state>
               </provider>
             </entry>
@@ -132,6 +135,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/HDRmaterial.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TempDataInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PostEffectApply.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../CameraUtil/Assets/Camera/Follow.cs" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CreateCSV.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SentenceGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Place.cs" root0="FORCE_HIGHLIGHTING" />
@@ -176,7 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Place.cs" />
         <option value="$PROJECT_DIR$/Assets/Dissolve.shader" />
         <option value="$PROJECT_DIR$/Assets/Osc/src/OscManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/rePlace.cs" />
@@ -227,6 +230,7 @@
         <option value="$PROJECT_DIR$/Assets/Camera/CamAbstruct.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/Follow.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/Switcher.cs" />
+        <option value="$PROJECT_DIR$/../CameraUtil/Assets/Camera/Follow.cs" />
       </list>
     </option>
   </component>
@@ -236,11 +240,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="261" />
-    <option name="y" value="23" />
-    <option name="width" value="1179" />
-    <option name="height" value="766" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="219" />
+    <option name="y" value="51" />
+    <option name="width" value="1090" />
+    <option name="height" value="832" />
   </component>
   <component name="ProjectView">
     <navigator currentView="UnityExplorer" proportions="" version="1">
@@ -314,12 +318,12 @@
       <workItem from="1540392052795" duration="15306000" />
       <workItem from="1540408256648" duration="21771000" />
       <workItem from="1540485274036" duration="991000" />
-      <workItem from="1540709528944" duration="6575000" />
+      <workItem from="1540709528944" duration="6618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138262000" />
+    <option name="totallyTimeSpent" value="138305000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -331,7 +335,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="219" y="51" width="1090" height="832" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49905482" weight="0.06276151" />
@@ -342,10 +346,10 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.5224299" weight="0.09051095" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48969698" visible="true" weight="0.062947065" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48979592" visible="true" weight="0.08396947" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Unity" order="7" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.510303" side_tool="true" visible="true" weight="0.062947065" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.5102041" side_tool="true" visible="true" weight="0.08396947" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="NuGet" order="7" />
@@ -397,13 +401,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Test/Scripts/CoRoutine.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/rePlace.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -765,6 +762,13 @@
             <marker date="1540719109000" expanded="true" signature="1046:1173" ph="{...}" />
             <marker date="1540719109000" expanded="true" signature="1210:1363" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../CameraUtil/Assets/Camera/Follow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
         </state>
       </provider>
     </entry>
