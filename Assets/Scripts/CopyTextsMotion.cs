@@ -46,7 +46,6 @@ public class CopyTextsMotion : MonoBehaviour {
        if (!isAnim){
            CopyText();
        }else if(isAnim){
-            Debug.Log("CopyTextSuc" + isAnim);
             //GenerateText();
             //CopyText();
             MoveText();

@@ -23,7 +23,7 @@ public class BaseTextMotion : MonoBehaviour {
 
 	private void OnEnable()
 	{
-        Debug.Log("start Coroutine");
+        //Debug.Log("start Coroutine");
 		StartCoroutine("Motion");
 		_startRotation = this.transform.localRotation;
 	}
@@ -35,8 +35,13 @@ public class BaseTextMotion : MonoBehaviour {
 	}
     
     private bool buffer = false;
+    float alpha = 1.0f;
 	private IEnumerator Motion()
 	{
+        //alpha = 1.0f;
+        //var c = this.GetComponent<Renderer>().material.color;
+        //this.GetComponent<Renderer>().material.color = new Color(c.r, c.g, c.b, alpha);
+
 
         isAnimetionComp = false;
         int frameNum = 300;
@@ -93,7 +98,16 @@ public class BaseTextMotion : MonoBehaviour {
             yield return null;
         }
         yield return null;
-	}
+
+        //c = this.GetComponent<Renderer>().material.color;
+        //for (int i = 0; i < 150; i++)
+        //{
+        //    Debug.Log("----------------");
+        //    this.GetComponent<Renderer>().material.color = new Color(c.r, c.g, c.b, alpha-1.0f/150.0f*i);
+        //    yield return null;
+        //}
+        yield return null;
+    }
 
 	private void OnDisable()
 	{

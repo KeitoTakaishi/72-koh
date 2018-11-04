@@ -84,7 +84,7 @@ public class SentenceGenerator : MonoBehaviour
         if(!flag){
             //Debug.Log("false-----------");
             ++frame;
-            if (frame == 550)
+            if (frame == 501)
             {
                 flag = true;
                 frame = 0;

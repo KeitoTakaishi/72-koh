@@ -2,6 +2,7 @@
 
 Shader "Custom/TestFont" {
 	  Properties {
+      
     _MainTex ("Font Texture", 2D) = "white" {}
     _Color ("Text Color", Color) = (1,1,1,1)
   }
@@ -63,7 +64,7 @@ Shader "Custom/TestFont" {
     col = tex2D(_MainTex, uv);
     col.rgb = fixed3(1.0, 1.0, 1.0) - col.rgb;
     //col.a = 255.0;
-    return col;
+    return col *_Color;
   }
   ENDCG
   }

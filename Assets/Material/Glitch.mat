@@ -76,7 +76,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Threshold: 0.61
-    - _TimeMag: 8.0282955
+    - _TimeMag: 3.4884849
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

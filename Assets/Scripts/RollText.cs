@@ -34,7 +34,7 @@ public class RollText : MonoBehaviour
     private SentenceGenerator _senGenerator;
     private Vector3[] TextEdgePos = new Vector3[2];
     int num = 72;
-    private float _stepSize = 15.0f;
+    public float _stepSize = 20.0f;
 
     #endregion
 
